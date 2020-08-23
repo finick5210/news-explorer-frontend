@@ -9,7 +9,7 @@
   <meta name="author" content="Никита Филатов">
   <title>NewsExplorer</title>
   <link rel="icon" href="./images/favicon.svg" type="image/svg">
-  <link rel="stylesheet" href="main.e9d8d13f6d55550d8fc7.css">
+  <link rel="stylesheet" href="main.867c48ee7777e0a0019c.css">
 </head>
 
 <body>
@@ -33,10 +33,10 @@
     </div>
   </section>
 
-  <section class="loading">
+  <div class="loading">
     <div class="loading__loader"></div>
     <p class="loading__text">Идет поиск новостей...</p>
-  </section>
+  </div>
 
   <section class="not-found">
     <img class="not-found__img" alt="Увы" src="./images/not-found_v1.svg">
@@ -48,10 +48,10 @@
     <h2 class="search-results__title">Результаты поиска</h2>
     <div class="cards-container">
       <div class="card">
-        <img class="card__pic" alt="Иллюстрация статьи" src="./images/image-08.png">
+        <img class="card__image" alt="Иллюстрация статьи" src="./images/image-08.png">
         <div class="card__tools">
           <div class="card__bookmark">
-            <p class="card__suggest">Войдите, чтобы сохранять статьи</p>
+            <div class="card__suggest">Войдите, чтобы сохранять статьи</div>
             <div class="bookmark"></div>
           </div>
         </div>
@@ -64,7 +64,7 @@
       </div>
 
       <div class="card">
-        <img class="card__pic" alt="Иллюстрация статьи" src="./images/image-04.png">
+        <img class="card__image" alt="Иллюстрация статьи" src="./images/image-04.png">
         <div class="card__tools">
           <div class="card__bookmark">
             <div class="card__suggest">Войдите, чтобы сохранять статьи</div>
@@ -80,11 +80,11 @@
       </div>
 
       <div class="card">
-        <img class="card__pic" alt="Иллюстрация статьи" src="./images/image-07.png">
+        <img class="card__image" alt="Иллюстрация статьи" src="./images/image-07.png">
         <div class="card__tools">
           <div class="card__bookmark">
             <div class="card__suggest">Войдите, чтобы сохранять статьи</div>
-            <div class="bookmark bookmark_marked"></div>
+            <div class="bookmark"></div>
           </div>
         </div>
         <div class="card__info">
@@ -111,7 +111,7 @@
         <span id="login-error-password" class="error-message">Пароль слишком короткий</span>
         <button type="submit" disabled class="form__button form__button_login">Войти</button>
       </form>
-      <p class="popup__choice">или <a class="popup__link">Зарегистрироваться</a></p>
+      <p class="popup__main">или <a class="popup__link">Зарегистрироваться</a></p>
     </div>
   </div>
 
@@ -131,7 +131,7 @@
         <span id="register-error-name" class="error-message">Такой пользователь уже есть</span>
         <button type="submit" disabled class="form__button form__button_register">Зарегистрироваться</button>
       </form>
-      <p class="popup__choice">или <a class="popup__link">Войти</a></p>
+      <p class="popup__main">или <a class="popup__link">Войти</a></p>
     </div>
   </div>
 
@@ -147,8 +147,8 @@
     <img class="author__avatar" alt="портрет автора" src="./images/image-03.png">
     <div class="author__info">
       <h2 class="author__title">Об авторе</h2>
-      <p class="author__about">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-      <p class="author__about">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+      <p class="author__description">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+      <p class="author__description">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
     </div>
   </section>
 
@@ -166,6 +166,6 @@
 
 </div>
 
-<script type="module" src=""></script>
+<script src=""></script>
 </body>
 </html>
