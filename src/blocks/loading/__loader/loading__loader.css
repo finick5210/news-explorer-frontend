@@ -1,0 +1,16 @@
+.loading__loader {
+  display: block;
+	width: 74px;
+  height: 74px;
+	border: 1px solid rgba(68, 68, 68, 0.25);
+  border-bottom-color: rgba(136, 136, 136, 0.9);
+  border-radius: 50%;
+
+  animation: spin .75s infinite linear;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}

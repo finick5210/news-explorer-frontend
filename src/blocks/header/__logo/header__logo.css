@@ -1,0 +1,27 @@
+@import url(./_theme/_white/header__logo_theme_white.css);
+@import url(./_theme/_dark/header__logo_theme_dark.css);
+@import url(./_menu/header__logo_menu.css);
+
+.header__logo {
+  font-family: 'Roboto Slab', serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  align-self: center;
+}
+@media (max-width: 767px) and (min-width: 320px) {
+  .header__logo {
+    width: 100%;
+    background: transparent;
+    padding: 16px 0 16px 4%;
+  }
+  .header__logo::after {
+    content: url(../../../images/menu.svg);
+    height: 12px;
+    width: 18px;
+    position: absolute;
+    right: 4%;
+    top: 30%;
+  }
+}

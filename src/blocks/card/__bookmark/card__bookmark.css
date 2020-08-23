@@ -1,0 +1,69 @@
+@import url(./_marked/card__bookmark_marked.css);
+
+.card__bookmark {
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-image: url(./../../../images/bookmark-normal.svg);
+  margin-left: 84%;
+  padding: 11px 13px 15px 13px;
+  align-self: flex-end;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.card__bookmark:focus {
+  outline: none;
+}
+
+.card__bookmark:hover {
+  background-image: url(../../../images/bookmark-hover.svg);
+ }
+
+
+.card__bookmark:hover .card__suggest {
+  visibility: visible;
+}
+
+@media (max-width: 1000px) and (min-width: 768px) {
+  .card__bookmark {
+    margin-left: 76%;
+  }
+}
+
+@media (width: 768px) {
+  .card__bookmark:hover .card__suggest {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 560px) {
+  .card__bookmark {
+    margin-left: 80%;
+    margin-top: 12px;
+  }
+  .card__bookmark:hover .card__suggest {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 559px) and (min-width: 400px) {
+  .card__bookmark {
+    margin-left: 82%;
+    margin-top: 18px;
+  }
+  .card__bookmark:hover .card__suggest {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 399px) and (min-width: 320px) {
+  .card__bookmark {
+    margin-left: 83%;
+  }
+  .card__bookmark:hover .card__suggest {
+    visibility: hidden;
+  }
+}

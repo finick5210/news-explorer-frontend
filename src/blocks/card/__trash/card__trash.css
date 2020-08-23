@@ -1,0 +1,51 @@
+.card__trash {
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-image: url(../../../images/trash-normal.svg);
+  padding: 11px;
+  margin-right: 20px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.card__trash:hover {
+ background-image: url(../../../images/trash-hover.svg);
+}
+
+.card__trash:focus {
+  outline: none;
+}
+
+.card__trash:hover .card__suggest {
+  visibility: visible;
+}
+
+@media (max-width: 1330px) and (min-width: 1090px) {
+  .card__trash {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 1089px) and (min-width: 768px) {
+  .card__trash {
+    margin-right: 8px;
+  }
+}
+
+@media (width: 768px) {
+  .card__trash:hover .card__suggest {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 321px) {
+  .card__trash {
+    margin-right: 3px;
+  }
+  .card__trash:hover .card__suggest {
+    visibility: hidden;
+  }
+}

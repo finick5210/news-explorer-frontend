@@ -1,0 +1,10 @@
+.not-found__text {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #B6BCBF;
+  max-width: 320px;
+  text-align: center;
+}

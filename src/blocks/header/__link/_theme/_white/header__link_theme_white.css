@@ -1,0 +1,9 @@
+.header__link_theme_white {
+  color: #1A1B22;
+  border-color: #1A1B22;
+}
+@media (max-width: 767px) and (min-width: 320px) {
+  .header__link_theme_white {
+    color: #fff;
+  }
+}

@@ -1,0 +1,13 @@
+@import url(./_theme/_white/header__link_theme_white.css);
+@import url(./_theme/_dark/header__link_theme_dark.css);
+@import url(./_underlined/header__link_underlined.css);
+
+.header__link {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 48px;
+  text-decoration: none;
+  margin-left: 34px;
+}

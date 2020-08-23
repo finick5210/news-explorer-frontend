@@ -1,0 +1,33 @@
+.card__suggest {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  position: absolute;
+  line-height: 14px;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 13px;
+  top: 0;
+  right: 20%;
+  visibility: hidden;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 1439px) and (min-width: 1115px) {
+  .card__suggest {
+    right: 20%;
+    padding: 13px 13px;
+  }
+}
+
+@media (max-width: 1114px) and (min-width: 767px) {
+  .card__suggest {
+    right: 30%;
+    padding: 13px 7px;
+  }
+}
