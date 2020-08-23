@@ -22,7 +22,6 @@
   border-radius: 16px;
   padding-bottom: 24px;
   transition: box-shadow .3s;
-  text-decoration: none;
 }
 
 .card:hover {
@@ -53,5 +52,3 @@
     margin: 2% 5%;
   }
 }
-
-

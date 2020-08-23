@@ -1,17 +1,15 @@
-@import url(./_marked/card__bookmark_marked.css);
-
 .card__bookmark {
   height: 40px;
   width: 40px;
   border: none;
   border-radius: 8px;
   box-sizing: border-box;
-  background-image: url(./../../../images/bookmark-normal.svg);
+  background-color: white;
   margin-left: 84%;
   padding: 11px 13px 15px 13px;
+  background-image: url(../../../images/bookmark-normal.svg);
   align-self: flex-end;
   cursor: pointer;
-  z-index: 100;
 }
 
 .card__bookmark:focus {
@@ -20,8 +18,11 @@
 
 .card__bookmark:hover {
   background-image: url(../../../images/bookmark-hover.svg);
- }
+}
 
+.card__bookmark:hover .bookmark_marked {
+  background-image: url(../../../images/bookmark-marked.svg);
+}
 
 .card__bookmark:hover .card__suggest {
   visibility: visible;

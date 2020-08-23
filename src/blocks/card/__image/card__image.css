@@ -1,6 +1,12 @@
 .card__image {
-  width: 100%;
-  height: auto;
-  max-height: 47%;
+  width: 400px;
+  height: 272px;
   border-radius: 16px 16px 0 0;
+}
+
+@media (max-width: 1439px) {
+  .card__image {
+    width: 100%;
+    height: auto;
+  }
 }

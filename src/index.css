@@ -8,6 +8,8 @@
 @import url(./blocks/search-results/search-results.css);
 @import url(./blocks/cards-container/cards-container.css);
 @import url(./blocks/card/card.css);
+@import url(./blocks/bookmark/bookmark.css);
+@import url(./blocks/bookmark/bookmark_marked.css);
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/form/form.css);
 @import url(./blocks/error/error.css);
@@ -16,13 +18,6 @@
 @import url(./blocks/articles/articles.css);
 @import url(./blocks/saved-articles/saved-articles.css);
 
-
 span {
   font-weight: bold;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }

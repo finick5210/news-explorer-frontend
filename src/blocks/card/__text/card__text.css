@@ -6,7 +6,11 @@
   line-height: 22px;
   color: #1A1B22;
   overflow-y: hidden;
-  max-height: 88px;
-  text-overflow: ellipsis;
 }
-/* text-overflow: clip; */
+
+@media (max-width: 1439px) {
+  .card__text {
+    height: 88px;
+    text-overflow: ellipsis;
+  }
+}

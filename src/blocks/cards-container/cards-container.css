@@ -1,4 +1,3 @@
-@import url(__text/cards-container__text.css);
 .cards-container {
   display: flex;
   flex-basis: auto;

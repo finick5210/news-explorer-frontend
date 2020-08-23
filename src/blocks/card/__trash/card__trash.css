@@ -8,11 +8,10 @@
   padding: 11px;
   margin-right: 20px;
   cursor: pointer;
-  z-index: 20;
 }
 
 .card__trash:hover {
- background-image: url(../../../images/trash-hover.svg);
+  background-image: url(../../../images/trash-hover.svg);
 }
 
 .card__trash:focus {
