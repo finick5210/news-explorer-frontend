@@ -1,0 +1,43 @@
+.header__authorization {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  height: 48px;
+  width: 176px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  border-radius: 100px;
+  color: #fff;
+  background-color: Transparent;
+  margin-left: 32px;
+  margin-bottom: 13px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.header__authorization:focus {
+  outline: none;
+}
+
+@media (max-width: 1439px) and (min-width: 768px) {
+  .header__authorization {
+    font-size: 16px;
+    width: 152px;
+    height: 40px;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  .header__authorization {
+    font-size: 18px;
+    width: 290px;
+    padding: 0 20px;
+    height: 56px;
+    margin-top: 14px;
+    margin-left: 4%;
+    align-self: flex-start;
+  }
+}

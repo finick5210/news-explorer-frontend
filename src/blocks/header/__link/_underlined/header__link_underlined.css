@@ -1,0 +1,9 @@
+.header__link_underlined {
+  border-bottom: 3px solid;
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  .header__link_underlined {
+    border-bottom: none;
+  }
+}

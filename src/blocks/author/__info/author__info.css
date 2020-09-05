@@ -1,0 +1,15 @@
+.author__info {
+  margin-left: 51px;
+}
+
+@media (max-width: 999px) and (min-width: 768px) {
+  .author__info {
+    margin-left: 32px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  .author__info {
+    margin-left: 2%;
+  }
+}

@@ -1,0 +1,10 @@
+@import url(./_theme/_white/root__top_theme_white.css);
+@import url(./_theme/_dark/root_top_theme_dark.css);
+
+.root__top {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 1440px;
+}
