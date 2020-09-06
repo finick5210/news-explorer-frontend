@@ -64,6 +64,35 @@
     </div>
   </template>
 
+  <template id="popup-signup">
+    <div class="popup__content">
+      <img alt="закрыть" class="popup__close" src="<%=require('./images/close.svg').default%>">
+      <h4 class="popup__title">Регистрация</h4>
+      <form class="popup__form popup__form_register" name="register">
+        <label class="form__field">Email</label>
+        <input id="register-email" type="email" required class="form__input form__input_type_email" placeholder="Введите почту">
+        <span id="register-error-email" class="error-message">Неверный формат email</span>
+        <label class="form__field">Пароль</label>
+        <input id="register-password" type="text" minlength="8" required class="form__input form__input_type_password" placeholder="Введите пароль">
+        <span id="register-error-password" class="error-message">Пароль слишком короткий</span>
+        <label class="form__field">Имя</label>
+        <input id="register-name" type="text" minlength="2" maxlength="30" required class="form__input form__input_type_name" placeholder="Введите своё имя">
+        <span id="register-error-name" class="error-message">Такой пользователь уже есть</span>
+        <span id="register-error" class="error-message server-error"></span>
+        <button type="submit" disabled class="form__button form__button_register">Зарегистрироваться</button>
+      </form>
+      <p class="popup__main">или <a class="popup__link popup__link_login">Войти</a></p>
+    </div>
+  </template>
+
+  <template id="popup-enter">
+    <div class="popup__content">
+      <img alt="закрыть" class="popup__close" src="<%=require('./images/close.svg').default%>">
+      <h4 class="popup__title">Пользователь успешно зарегистрирован</h4>
+      <a class="popup__enter popup__link">Выполнить вход</a>
+    </div>
+  </template>
+
   <section class="author">
     <img class="author__avatar" alt="портрет автора" src="<%=require('./images/image-03.png').default%>">
     <div class="author__info">

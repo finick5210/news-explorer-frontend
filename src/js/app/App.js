@@ -1,5 +1,6 @@
 import Header from '../components/Header'
-import Popup from "../components/Popup";
+import Popup from '../components/Popup';
+import Form from '../components/Form'
 
 export default class App {
   constructor(root, api, newsApi) {
@@ -39,15 +40,39 @@ export default class App {
       });
 
     headerContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains('header__authorization')) {
+      const classList = e.target.classList;
+
+      if (classList.contains('header__authorization')) {
         popup.create(this._root.querySelector('#popup-signin'));
         popup.open();
       }
     });
 
     popupContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains('popup__close')) {
+      const classList = e.target.classList;
+
+      if (classList.contains('popup__close')) {
         popup.close();
+      } else if (classList.contains('popup__link_register')) {
+        popup.close();
+        popup.create(this._root.querySelector('#popup-signup'));
+        popup.open();
+      } else if (classList.contains('popup__link_login')) {
+        popup.close();
+        popup.create(this._root.querySelector('#popup-signin'));
+        popup.open();
+      } else if (classList.contains('form__button_register')) {
+        e.preventDefault();
+        const registerForm = new Form(this._root.querySelector('.popup__form_register'));
+        this._api.signup(registerForm.getValues())
+          .then(() => {
+            popup.close();
+            popup.create(this._root.querySelector('#popup-enter'));
+            popup.open();
+          })
+          .catch();
+      } else if (classList.contains('form__button_login')) {
+        e.preventDefault();
       }
     });
   }
