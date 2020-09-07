@@ -3,11 +3,15 @@ export default class Form {
     this._container = container;
   }
 
-  getValues() {
-    return this._container ? {
-      email: this._container.querySelector('.form__input_type_email').value,
-      password: this._container.querySelector('.form__input_type_password').value,
-      name: this._container.querySelector('.form__input_type_name').value
-    }: {}
+  getEmail() {
+    return this._container.querySelector('.form__input_type_email').value;
+  }
+
+  getPassword() {
+    return this._container.querySelector('.form__input_type_password').value;
+  }
+
+  getName() {
+    return this._container.querySelector('.form__input_type_name').value;
   }
 }

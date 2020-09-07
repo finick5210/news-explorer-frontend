@@ -67,7 +67,8 @@ export default class Api {
       headers: {
         ...this._headers,
         Authorization: `Bearer ${this._getToken()}`
-      }
+      },
+      credentials: 'include'
     })
       .then(
         res => this._getResponse(res)
