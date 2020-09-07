@@ -66,6 +66,8 @@ export default class App {
         popup.close();
         popup.create(this._root.querySelector('#popup-signin'));
         popup.open();
+        const loginFormValidator = new FormValidator(this._root.querySelector('.popup__form_login'));
+        loginFormValidator.setEventListeners();
       } else if (classList.contains('form__button_register')) {
         e.preventDefault();
         const registerForm = new Form(this._root.querySelector('.popup__form_register'));

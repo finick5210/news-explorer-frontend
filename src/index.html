@@ -55,7 +55,7 @@
         <input id="login-email" type="email" required class="form__input form__input_type_email" placeholder="Введите почту">
         <span id="error-login-email" class="error"></span>
         <label class="form__field">Пароль</label>
-        <input id="login-password" type="text" minlength="8" required class="form__input form__input_type_password" placeholder="Введите пароль">
+        <input id="login-password" minlength="8" type="password" required class="form__input form__input_type_password" placeholder="Введите пароль">
         <span id="error-login-password" class="error"></span>
         <span id="login-error" class="error server-error"></span>
         <button type="submit" disabled class="form__button form__button_login">Войти</button>
@@ -89,7 +89,7 @@
     <div class="popup__content">
       <img alt="закрыть" class="popup__close" src="<%=require('./images/close.svg').default%>">
       <h4 class="popup__title">Пользователь успешно зарегистрирован</h4>
-      <a class="popup__enter popup__link">Выполнить вход</a>
+      <a class="popup__enter popup__link popup__link_login">Выполнить вход</a>
     </div>
   </template>
 
