@@ -24,8 +24,8 @@ export default class App {
     const popup = new Popup(popupContainer);
 
     this._api.getUser()
-      .then((data) => {
-        const { name, email } = data;
+      .then((response) => {
+        const { name, email } = response.data;
 
         this._parameters = {
           isAuthorized: true,
@@ -95,8 +95,8 @@ export default class App {
           .then(() => {
             popup.close();
             this._api.getUser()
-              .then((data) => {
-                const { name, email } = data;
+              .then((response) => {
+                const { name, email } = response.data;
 
                 this._parameters = {
                   isAuthorized: true,

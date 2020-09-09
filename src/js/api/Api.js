@@ -63,7 +63,7 @@ export default class Api {
   }
 
   getUser() {
-    return fetch(`${this._baseUrl}users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: {
         ...this._headers,
         Authorization: `Bearer ${this._getToken()}`
@@ -80,7 +80,7 @@ export default class Api {
   }
 
   _getToken() {
-    const match = document.cookie.match(new RegExp('(^| )' + 'jwt' + '=([^;]+)'));
+    const match = document.cookie.match(new RegExp('(^| )' + 'token' + '=([^;]+)'));
     return match ? match[2] : null;
   }
 }
