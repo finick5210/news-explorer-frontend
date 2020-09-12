@@ -19,18 +19,29 @@ export default class CardList {
     if (this._cards && this._cards.length !== 0) {
       this._cards.forEach((newsCard) => {
         const {
-          title, description, source, url, urlToImage, publishedAt,
+          _id = null,
+          text,
+          image,
+          date,
+          title,
+          description,
+          source,
+          url,
+          urlToImage,
+          publishedAt,
+          link,
+          keyword
         } = newsCard;
 
         const card = new Card(
-          null,
-          description,
-          urlToImage,
+          _id,
+          isSaved ? text : description,
+          isSaved ? image : urlToImage,
           title,
-          publishedAt,
-          url,
-          source.name,
-          null,
+          isSaved ? date : publishedAt,
+          isSaved ? link : url,
+          isSaved ? source : source.name,
+          isSaved ? keyword : document.forms.search.keyword.value,
           this._saveCallback,
           this._removeCallback
         );

@@ -67,8 +67,8 @@ export default class App {
               cardList = new CardList(
                 document.querySelector('.cards-container'),
                 data,
-                this._api.addArticle,
-                this._api.deleteArticle
+                () => {},
+                this._api.deleteArticle.bind(this._api)
                 );
               this._renderSavedArticlesHeader(this._parameters, data);
               cardList.render(this._isSaved, this._parameters.isAuthorized);
@@ -170,16 +170,23 @@ export default class App {
             const cardList = new CardList(
               document.querySelector('.cards-container'),
               articles,
-              this._api.addArticle,
-              this._api.deleteArticle
+              this._api.addArticle.bind(this._api),
+              () => {}
             );
 
             toggleClass(document.querySelector('.search-results'), 'hidden');
             toggleClass(document.querySelector('.loading'), 'hidden');
 
-            cardList.render();
-          }).catch(() => {
-
+            cardList.render(this._isSaved, this._parameters.isAuthorized);
+          }).catch((error) => {
+              const cardList = new CardList(
+                document.querySelector('.cards-container'),
+                [],
+                () => {},
+                () => {}
+              );
+              cardList.setErrorState(error);
+              toggleClass(document.querySelector('.loading'), 'hidden');
         });
       });
     }

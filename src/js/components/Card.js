@@ -52,20 +52,39 @@ export default class Card {
   create(isSaved, isAuthorized) {
     const card = this._createMarkup(isSaved);
 
-    card.querySelector('.card').addEventListener('click', (e) => !e.target.classList.contains('card__bookmark') && window.open(this._link, '_blank'));
+    card
+      .querySelector('.card__source')
+      .addEventListener('click', (e) => window.open(this._link, '_blank'));
 
-    if (isSaved) {
-      card.querySelector('.card__suggest') && card.removeChild(card.querySelector('.card__suggest'));
+    if (isAuthorized) {
+      if (isSaved) {
+        card.querySelector('.card__trash').addEventListener('click', () => {
+          this._removeCallback(this._id)
+            .then(() => {
 
-      card.querySelector('.card__trash').addEventListener('click', (e) => {
-        this._removeCallback(this._id)
-          .then(() => {
+            })
+            .catch(() => {
 
-          })
-          .catch(() => {
-
-          });
-      });
+            });
+        });
+      } else {
+        card.querySelector('.card__bookmark').addEventListener('click', (e) => {
+          const marked = card.querySelector('.card__bookmark_marked');
+          !marked && this._saveCallback(
+            this._keyword,
+            this._title,
+            this._text,
+            this._date,
+            this._source,
+            this._link,
+            this._image
+          )
+            .then (() => {
+              addClass(e.target, 'card__bookmark_marked');
+            })
+            .catch(() => console.log('Возникли проблемы при сохранении карточки'));
+        });
+      }
     } else {
       const suggest = document.createElement('div');
       addClass(suggest, 'card__suggest');

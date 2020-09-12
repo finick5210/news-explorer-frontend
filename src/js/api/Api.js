@@ -1,4 +1,4 @@
-import { getResponse } from '../utils/Utils';
+import { getResponse, getToken } from '../utils/Utils';
 
 export default class Api {
   constructor(params) {
@@ -32,7 +32,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/articles`, {
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`,
+        Authorization: `Bearer ${getToken()}`,
       },
       credentials: 'include',
     })
@@ -44,7 +44,7 @@ export default class Api {
       method: 'POST',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`,
+        Authorization: `Bearer ${getToken()}`,
       },
       credentials: 'include',
       body: JSON.stringify({
@@ -59,7 +59,7 @@ export default class Api {
       method: 'DELETE',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`,
+        Authorization: `Bearer ${getToken()}`,
       },
       credentials: 'include',
     })
@@ -70,17 +70,12 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`,
+        Authorization: `Bearer ${getToken()}`,
       },
       credentials: 'include',
     })
       .then(
         (res) => getResponse(res),
       );
-  }
-
-  _getToken() {
-    const match = document.cookie.match(new RegExp('(^| )' + 'token' + '=([^;]+)'));
-    return match ? match[2] : null;
   }
 }
