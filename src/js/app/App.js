@@ -3,7 +3,7 @@ import Popup from '../components/Popup';
 import Form from '../components/Form';
 import FormValidator from '../components/FormValidator';
 import { getDate } from '../utils/Date';
-import { toggleClass, addTextContent, removeToken, removeClass } from '../utils/Utils';
+import { toggleClass, addTextContent, removeToken, removeClass, addClass } from '../utils/Utils';
 import CardList from '../components/CardList';
 
 export default class App {
@@ -203,6 +203,7 @@ export default class App {
       searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        addClass(document.querySelector('.not-found'), 'hidden');
         toggleClass(document.querySelector('.loading'), 'hidden');
 
         this._newsApi.getNews({

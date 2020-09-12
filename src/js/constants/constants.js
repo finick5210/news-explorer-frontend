@@ -6,3 +6,5 @@ export const INVALID_NAME_LENGTH = 'Длина имени должна быть 
 export const NOT_FOUND_CODE = 404;
 export const NOT_AUTHORIZED_CODE = 401;
 export const CONFLICT_CODE = 409;
+
+export const ROW_SIZE = 3;
