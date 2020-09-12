@@ -67,12 +67,12 @@ export default class CardList {
   }
 
   setErrorState(code) {
-    addClass(this._container.querySelector('.search-results'), 'hidden');
-    removeClass(this._container.querySelector('.not-found'), 'hidden');
+    addClass(document.querySelector('.search-results'), 'hidden');
+    removeClass(document.querySelector('.not-found'), 'hidden');
 
     const isNotFound = code === NOT_FOUND_CODE;
 
-    this._container.querySelector('.not-found__title').textContent = isNotFound ? 'Ничего не найдено' : 'Во время запроса произошла ошибка';
-    this._container.querySelector('.not-found__text').textContent = isNotFound ? 'К сожалению, по вашему запросу ничего не найдено' : 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
+    document.querySelector('.not-found__title').textContent = isNotFound ? 'Ничего не найдено' : 'Во время запроса произошла ошибка';
+    document.querySelector('.not-found__text').textContent = isNotFound ? 'К сожалению, по вашему запросу ничего не найдено' : 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
   }
 }

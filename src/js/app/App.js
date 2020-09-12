@@ -3,7 +3,7 @@ import Popup from '../components/Popup';
 import Form from '../components/Form';
 import FormValidator from '../components/FormValidator';
 import { getDate } from '../utils/Date';
-import { toggleClass, addTextContent, removeToken } from '../utils/Utils';
+import { toggleClass, addTextContent, removeToken, removeClass } from '../utils/Utils';
 import CardList from '../components/CardList';
 
 export default class App {
@@ -19,10 +19,53 @@ export default class App {
 
     const { name = '' } = parameters;
     const articlesCount = this._root.querySelector('.articles__count');
+    const firstKeyword = document.querySelector('.articles__keywords-first');
+    const secondKeyword = document.querySelector('.articles__keywords-second');
+    const thirdKeyword = document.querySelector('.articles__keywords-third');
 
     addTextContent(articlesCount, articles.length === 0
       ? `${name}, у вас пока нет сохранённых статей`
       : `${name}, у вас ${articles.length} сохранённых статей`);
+
+    const keywords = articles.map((article) => {
+      return article.keyword;
+    });
+
+    const keywordNumber = {};
+    keywords.forEach((keyword) => keywordNumber[keyword] = keywordNumber[keyword] ? ++keywordNumber[keyword] : 1);
+
+    const sortedKeywords = Object.keys(keywordNumber).sort((first, second) => {
+      return keywordNumber[second] - keywordNumber[first];
+    });
+
+    const sortedKeywordsLength = sortedKeywords.length;
+
+    switch (sortedKeywordsLength) {
+      case 0: {
+        addTextContent(firstKeyword, '');
+        break;
+      }
+      case 1: {
+        addTextContent(firstKeyword, sortedKeywords[0]);
+        break;
+      }
+      case 2: {
+        addTextContent(firstKeyword, sortedKeywords[0]);
+        addTextContent(secondKeyword, `, ${sortedKeywords[1]}`);
+        break;
+      }
+      case 3: {
+        addTextContent(firstKeyword, sortedKeywords[0]);
+        addTextContent(secondKeyword, `, ${sortedKeywords[1]}`);
+        addTextContent(thirdKeyword, `и ${sortedKeywords[2]}`);
+        break;
+      }
+      default: {
+        addTextContent(firstKeyword, sortedKeywords[0]);
+        addTextContent(secondKeyword, `, ${sortedKeywords[1]}`);
+        addTextContent(thirdKeyword, `и ${sortedKeywordsLength - 2} другим`);
+      }
+    }
   }
 
   renderPage() {
@@ -175,7 +218,7 @@ export default class App {
               () => {}
             );
 
-            toggleClass(document.querySelector('.search-results'), 'hidden');
+            removeClass(document.querySelector('.search-results'), 'hidden');
             toggleClass(document.querySelector('.loading'), 'hidden');
 
             cardList.render(this._isSaved, this._parameters.isAuthorized);
