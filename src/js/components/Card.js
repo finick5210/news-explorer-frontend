@@ -58,10 +58,11 @@ export default class Card {
 
     if (isAuthorized) {
       if (isSaved) {
-        card.querySelector('.card__trash').addEventListener('click', () => {
+        card.querySelector('.card__trash').addEventListener('click', (e) => {
           this._removeCallback(this._id)
             .then(() => {
-
+              const closestCard = e.target.closest('.card');
+              closestCard.parentNode.removeChild(closestCard);
             })
             .catch(() => {
 
