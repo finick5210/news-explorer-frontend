@@ -1,18 +1,14 @@
-'use strict';
-
 export const addClass = (element, elementClass) => {
-    element.classList.add(elementClass);
+  element.classList.add(elementClass);
 };
 
 export const resetError = (error) => {
-    error.innerHTML = "";
-    error.classList.remove('popup__error');
+  error.innerHTML = '';
+  error.classList.remove('popup__error');
 };
 
 export const toggleClass = (element, elementClass) => {
-    element.classList.toggle(elementClass);
+  element.classList.toggle(elementClass);
 };
 
-export const getResponse = (res) => {
-  return res.ok ? res.json() : Promise.reject(res.status);
-};
+export const getResponse = (res) => (res.ok ? res.json() : Promise.reject(res.status));

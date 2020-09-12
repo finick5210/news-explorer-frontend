@@ -1,8 +1,8 @@
-import Header from '../components/Header'
+import Header from '../components/Header';
 import Popup from '../components/Popup';
-import Form from '../components/Form'
-import FormValidator from "../components/FormValidator";
-import { getDate } from '../utils/Date'
+import Form from '../components/Form';
+import FormValidator from '../components/FormValidator';
+import { getDate } from '../utils/Date';
 import { toggleClass } from '../utils/Utils';
 
 export default class App {
@@ -33,18 +33,18 @@ export default class App {
         this._parameters = {
           isAuthorized: true,
           name,
-          email
-        }
+          email,
+        };
       })
       .catch(() => {
-        this._parameters = {}
+        this._parameters = {};
       })
       .finally(() => {
-        header.render(this._parameters)
+        header.render(this._parameters);
       });
 
     headerContainer.addEventListener('click', (e) => {
-      const classList = e.target.classList;
+      const { classList } = e.target;
 
       if (classList.contains('header__authorization')) {
         popup.create(this._root.querySelector('#popup-signin'));
@@ -57,7 +57,7 @@ export default class App {
     });
 
     popupContainer.addEventListener('click', (e) => {
-      const classList = e.target.classList;
+      const { classList } = e.target;
 
       if (classList.contains('popup__close')) {
         popup.close();
@@ -81,7 +81,8 @@ export default class App {
         this._api.signup(
           registerForm.getEmail(),
           registerForm.getPassword(),
-          registerForm.getName())
+          registerForm.getName(),
+        )
           .then(() => {
             popup.close();
             popup.create(this._root.querySelector('#popup-enter'));
@@ -95,7 +96,7 @@ export default class App {
 
         this._api.signin(
           loginForm.getEmail(),
-          loginForm.getPassword()
+          loginForm.getPassword(),
         )
           .then(() => {
             popup.close();
@@ -106,14 +107,14 @@ export default class App {
                 this._parameters = {
                   isAuthorized: true,
                   name,
-                  email
-                }
+                  email,
+                };
               })
               .catch(() => {
-                this._parameters = {}
+                this._parameters = {};
               })
               .finally(() => {
-                header.render(this._parameters)
+                header.render(this._parameters);
               });
           })
           .catch((error) => loginFormValidator.setError(error));
@@ -131,7 +132,9 @@ export default class App {
       })
         .then(() => {
 
-      })
+        }).catch(() => {
+
+        });
     });
   }
 }

@@ -1,5 +1,3 @@
-'use strict';
-
 export const getDate = (mode) => {
   if (!['from', 'to'].includes(mode)) return null;
 

@@ -1,4 +1,4 @@
-import { getResponse } from '../utils/Utils'
+import { getResponse } from '../utils/Utils';
 
 export default class Api {
   constructor(params) {
@@ -13,9 +13,9 @@ export default class Api {
       method: 'POST',
       headers: this._headers,
       credentials: 'include',
-      body: JSON.stringify({ email, password, name })
+      body: JSON.stringify({ email, password, name }),
     })
-      .then(res => getResponse(res));
+      .then((res) => getResponse(res));
   }
 
   signin(email, password) {
@@ -23,20 +23,20 @@ export default class Api {
       method: 'POST',
       headers: this._headers,
       credentials: 'include',
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }),
     })
-      .then(res => getResponse(res));
+      .then((res) => getResponse(res));
   }
 
   getArticles() {
     return fetch(`${this._baseUrl}/articles`, {
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`
+        Authorization: `Bearer ${this._getToken()}`,
       },
       credentials: 'include',
     })
-      .then(res => getResponse(res));
+      .then((res) => getResponse(res));
   }
 
   addArticle(keyword, title, text, date, source, link, image) {
@@ -44,12 +44,14 @@ export default class Api {
       method: 'POST',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`
+        Authorization: `Bearer ${this._getToken()}`,
       },
       credentials: 'include',
-      body: JSON.stringify({ keyword, title, text, date, source, link, image})
+      body: JSON.stringify({
+        keyword, title, text, date, source, link, image,
+      }),
     })
-      .then(res => getResponse(res));
+      .then((res) => getResponse(res));
   }
 
   deleteArticle(id) {
@@ -57,23 +59,23 @@ export default class Api {
       method: 'DELETE',
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`
+        Authorization: `Bearer ${this._getToken()}`,
       },
       credentials: 'include',
     })
-      .then(res => getResponse(res));
+      .then((res) => getResponse(res));
   }
 
   getUser() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this._getToken()}`
+        Authorization: `Bearer ${this._getToken()}`,
       },
-      credentials: 'include'
+      credentials: 'include',
     })
       .then(
-        res => getResponse(res)
+        (res) => getResponse(res),
       );
   }
 

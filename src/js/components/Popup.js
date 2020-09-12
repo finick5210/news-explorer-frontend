@@ -1,6 +1,6 @@
 export default class Popup {
   constructor(container) {
-      this._container = container;
+    this._container = container;
   }
 
   open() {
@@ -17,6 +17,6 @@ export default class Popup {
   }
 
   create(content) {
-    this._container.appendChild(content.content.cloneNode(true))
+    this._container.appendChild(content.content.cloneNode(true));
   }
 }
