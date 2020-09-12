@@ -1,6 +1,12 @@
 {
   "extends": "airbnb-base",
   "rules": {
-    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
+    "no-underscore-dangle": "off"
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "require": true,
+    "fetch": true
   }
 }

@@ -1,8 +1,17 @@
-import { addClass, addTextContent } from "../utils/Utils";
+import { addClass, addTextContent } from '../utils/Utils';
 import { getCardDate } from '../utils/Date';
 
 export default class Card {
-  constructor(id = null, text, image, title, date, link, source, keyword, saveCallback, removeCallback) {
+  constructor(
+    id = null,
+    text, image,
+    title, date,
+    link,
+    source,
+    keyword,
+    saveCallback,
+    removeCallback,
+  ) {
     this._id = id;
     this._text = text;
     this._image = image;
@@ -55,7 +64,7 @@ export default class Card {
 
     card
       .querySelector('.card__source')
-      .addEventListener('click', (e) => window.open(this._link, '_blank'));
+      .addEventListener('click', () => window.open(this._link, '_blank'));
 
     if (isAuthorized) {
       if (isSaved) {
@@ -79,9 +88,9 @@ export default class Card {
             this._date,
             this._source,
             this._link,
-            this._image
+            this._image,
           )
-            .then (() => {
+            .then(() => {
               addClass(e.target, 'card__bookmark_marked');
             })
             .catch(() => console.log('Возникли проблемы при сохранении карточки'));

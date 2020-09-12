@@ -1,7 +1,7 @@
 import Card from './Card';
 
 import { removeClass, addClass } from '../utils/Utils';
-import { NOT_FOUND_CODE, ROW_SIZE} from '../constants/constants';
+import { NOT_FOUND_CODE, ROW_SIZE } from '../constants/constants';
 
 export default class CardList {
   constructor(container, cards, saveCallback, removeCallback, limit) {
@@ -41,7 +41,7 @@ export default class CardList {
             urlToImage,
             publishedAt,
             link,
-            keyword
+            keyword,
           } = newsCard;
 
           const card = new Card(
@@ -54,7 +54,7 @@ export default class CardList {
             isSaved ? source : source.name,
             isSaved ? keyword : document.forms.search.keyword.value,
             this._saveCallback,
-            this._removeCallback
+            this._removeCallback,
           );
 
           this._addCard(card, isSaved, isAuthorized);

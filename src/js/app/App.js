@@ -3,7 +3,9 @@ import Popup from '../components/Popup';
 import Form from '../components/Form';
 import FormValidator from '../components/FormValidator';
 import { getDate } from '../utils/Date';
-import { toggleClass, addTextContent, removeToken, removeClass, addClass } from '../utils/Utils';
+import {
+  toggleClass, addTextContent, removeToken, removeClass, addClass,
+} from '../utils/Utils';
 import CardList from '../components/CardList';
 
 export default class App {
@@ -16,7 +18,6 @@ export default class App {
   }
 
   _renderSavedArticlesHeader(parameters, articles) {
-
     const { name = '' } = parameters;
     const articlesCount = this._root.querySelector('.articles__count');
     const firstKeyword = document.querySelector('.articles__keywords-first');
@@ -27,16 +28,12 @@ export default class App {
       ? `${name}, у вас пока нет сохранённых статей`
       : `${name}, у вас ${articles.length} сохранённых статей`);
 
-    const keywords = articles.map((article) => {
-      return article.keyword;
-    });
+    const keywords = articles.map((article) => article.keyword);
 
     const keywordNumber = {};
     keywords.forEach((keyword) => keywordNumber[keyword] = keywordNumber[keyword] ? ++keywordNumber[keyword] : 1);
 
-    const sortedKeywords = Object.keys(keywordNumber).sort((first, second) => {
-      return keywordNumber[second] - keywordNumber[first];
-    });
+    const sortedKeywords = Object.keys(keywordNumber).sort((first, second) => keywordNumber[second] - keywordNumber[first]);
 
     const sortedKeywordsLength = sortedKeywords.length;
 
@@ -88,7 +85,7 @@ export default class App {
         this._parameters = {
           isAuthorized: true,
           name,
-          email
+          email,
         };
       })
       .catch(() => {
@@ -97,11 +94,10 @@ export default class App {
       .finally(() => {
         header.render({
           ...this._parameters,
-          isSaved: this._isSaved
+          isSaved: this._isSaved,
         });
 
         if (this._isSaved) {
-
           let cardList = new CardList(document.querySelector('.cards-container'), []);
 
           this._api.getArticles()
@@ -111,8 +107,9 @@ export default class App {
                 document.querySelector('.cards-container'),
                 data,
                 () => {},
-                this._api.deleteArticle.bind(this._api)
-                );
+                this._api.deleteArticle.bind(this._api),
+                data.length,
+              );
               this._renderSavedArticlesHeader(this._parameters, data);
               cardList.render(this._isSaved, this._parameters.isAuthorized);
             })
@@ -218,7 +215,7 @@ export default class App {
               document.querySelector('.cards-container'),
               articles,
               this._api.addArticle.bind(this._api),
-              () => {}
+              () => {},
             );
 
             removeClass(document.querySelector('.search-results'), 'hidden');
@@ -226,15 +223,15 @@ export default class App {
 
             cardList.render(this._isSaved, this._parameters.isAuthorized);
           }).catch((error) => {
-              const cardList = new CardList(
-                document.querySelector('.cards-container'),
-                [],
-                () => {},
-                () => {}
-              );
-              cardList.setErrorState(error);
-              toggleClass(document.querySelector('.loading'), 'hidden');
-        });
+            const cardList = new CardList(
+              document.querySelector('.cards-container'),
+              [],
+              () => {},
+              () => {},
+            );
+            cardList.setErrorState(error);
+            toggleClass(document.querySelector('.loading'), 'hidden');
+          });
       });
     }
   }

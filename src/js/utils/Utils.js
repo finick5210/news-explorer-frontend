@@ -21,7 +21,7 @@ export const getToken = () => {
 
 export const removeToken = () => {
   const token = getToken();
-  document.cookie = document.cookie.replace(token, token + '; expires=Thu, 01 Jan 1970 00:00:00 UTC;');
+  document.cookie = document.cookie.replace(token, `${token}; expires=Thu, 01 Jan 1970 00:00:00 UTC;`);
 };
 
 export const getResponse = (res) => (res.ok ? res.json() : Promise.reject(res.status));

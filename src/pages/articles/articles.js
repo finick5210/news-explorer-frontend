@@ -1,7 +1,7 @@
 import '../../index.css';
 import App from '../../js/app/App';
 import Api from '../../js/api/Api';
-import NewsApi from "../../js/api/NewsApi";
+import NewsApi from '../../js/api/NewsApi';
 
 const app = new App(
   document.querySelector('.root'),
