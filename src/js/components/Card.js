@@ -1,4 +1,5 @@
 import { addClass, addTextContent } from "../utils/Utils";
+import { getCardDate } from '../utils/Date';
 
 export default class Card {
   constructor(id = null, text, image, title, date, link, source, keyword, saveCallback, removeCallback) {
@@ -27,7 +28,7 @@ export default class Card {
         </div>
       </div>
       <div class="card__info">
-        <p class="card__date">${this._date}</p>
+        <p class="card__date">${getCardDate(this._date)}</p>
         <h3 class="card__title">${this._title}</h3>
         <p class="card__text">${this._text}</p>
       </div>
@@ -40,7 +41,7 @@ export default class Card {
         <div class="card__bookmark"></div>
       </div>
       <div class="card__info">
-        <p class="card__date">${this._date}</p>
+        <p class="card__date">${getCardDate(this._date)}</p>
         <h3 class="card__title">${this._title}</h3>
         <p class="card__text">${this._text}</p>
       </div>

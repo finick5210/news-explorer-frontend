@@ -10,3 +10,15 @@ export const getDate = (mode) => {
 
   return `${year}-${month}-${day}`;
 };
+
+export const getCardDate = (date) => {
+  if (!date) return;
+
+  const correctDate = new Date(date);
+
+  const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(correctDate);
+  const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(correctDate);
+  const day = new Intl.DateTimeFormat('en', { day: 'numeric' }).format(correctDate);
+
+  return `${day} ${month} ${year}`;
+};
