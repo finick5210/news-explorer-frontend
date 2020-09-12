@@ -1,3 +1,5 @@
+import { addClass, addTextContent } from "../utils/Utils";
+
 export default class Card {
   constructor(id = null, text, image, title, date, link, source, keyword, saveCallback, removeCallback) {
     this._id = id;
@@ -47,12 +49,14 @@ export default class Card {
     );
   }
 
-  create(isSaved) {
+  create(isSaved, isAuthorized) {
     const card = this._createMarkup(isSaved);
 
     card.querySelector('.card').addEventListener('click', (e) => !e.target.classList.contains('card__bookmark') && window.open(this._link, '_blank'));
 
     if (isSaved) {
+      card.querySelector('.card__suggest') && card.removeChild(card.querySelector('.card__suggest'));
+
       card.querySelector('.card__trash').addEventListener('click', (e) => {
         this._removeCallback(this._id)
           .then(() => {
@@ -62,6 +66,11 @@ export default class Card {
 
           });
       });
+    } else {
+      const suggest = document.createElement('div');
+      addClass(suggest, 'card__suggest');
+      addTextContent(suggest, 'Войдите, чтобы сохранять статьи');
+      card.querySelector('.card__bookmark').appendChild(suggest);
     }
 
     return card;

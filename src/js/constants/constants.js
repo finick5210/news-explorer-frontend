@@ -4,3 +4,5 @@ export const INVALID_PASSWORD_LENGTH = 'Длина пароля должна б�
 export const INVALID_NAME_LENGTH = 'Длина имени должна быть в диапазоне от 2 до 30 символов';
 
 export const NOT_FOUND_CODE = 404;
+export const NOT_AUTHORIZED_CODE = 401;
+export const CONFLICT_CODE = 409;

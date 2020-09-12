@@ -17,103 +17,24 @@
 <div class="root">
   <section class="root__top root__top_theme_white">
     <header class="header header_theme_white"></header>
+
     <div class="articles">
       <h5 class="articles__title">Сохранённые статьи</h5>
-      <p class="articles__count">Грета, у вас 5 сохранённых статей</p>
-      <p class="articles__keywords">По ключевым словам: <span>Природа, Тайга</span> и <span>2 другим</span></p>
+      <p class="articles__count"></p>
+      <p class="articles__keywords">По ключевым словам:
+        <span>Природа, Тайга</span> и <span>2 другим</span>
+      </p>
     </div>
+  </section>
+
+  <section class="loading hidden">
+    <div class="loading__loader"></div>
+    <p class="loading__text">Идет загрузка новостей...</p>
   </section>
 
   <section class="saved-articles">
     <div class="wrapper">
-      <div class="cards-container">
-
-        <div class="card">
-          <img class="card__image" alt="Иллюстрация статьи" src="<%=require('../../images/image-01.png').default%>">
-          <div class="card__tools">
-            <div class="card__keyword">Природа</div>
-            <div class="card__trash">
-              <p class="card__suggest">Убрать из сохраненных</p>
-              <div class="trash"></div>
-            </div>
-          </div>
-          <div class="card__info">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-          </div>
-          <p class="card__source">Лента.ру</p>
-        </div>
-
-        <div class="card">
-          <img class="card__image" alt="Иллюстрация статьи" src="<%=require('../../images/image-04.png').default%>">
-          <div class="card__tools">
-            <div class="card__keyword">Природа</div>
-            <div class="card__trash">
-              <p class="card__suggest">Убрать из сохраненных</p>
-              <div class="trash"></div>
-            </div>
-          </div>
-          <div class="card__info">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-          </div>
-          <p class="card__source">Медуза</p>
-        </div>
-
-        <div class="card">
-          <img class="card__image" alt="Иллюстрация статьи" src="<%=require('../../images/image-07.png').default%>">
-          <div class="card__tools">
-            <div class="card__keyword">Тайга</div>
-            <div class="card__trash">
-              <p class="card__suggest">Убрать из сохраненных</p>
-              <div class="trash"></div>
-            </div>
-          </div>
-          <div class="card__info">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-            <p class="card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-          </div>
-          <p class="card__source">Риа</p>
-        </div>
-
-        <div class="card">
-          <img class="card__image" alt="Иллюстрация статьи" src="<%=require('../../images/image-08.png').default%>">
-          <div class="card__tools">
-            <div class="card__keyword">Цветочки</div>
-            <div class="card__trash">
-              <p class="card__suggest">Убрать из сохраненных</p>
-              <div class="trash"></div>
-            </div>
-          </div>
-          <div class="card__info">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">Национальное достояние – парки</h3>
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-          </div>
-          <p class="card__source">Лента.ру</p>
-        </div>
-
-        <div class="card">
-          <img class="card__image" alt="Иллюстрация статьи" src="<%=require('../../images/image-04.png').default%>">
-          <div class="card__tools">
-            <div class="card__keyword">Листики</div>
-            <div class="card__trash">
-              <p class="card__suggest">Убрать из сохраненных</p>
-              <div class="trash"></div>
-            </div>
-          </div>
-          <div class="card__info">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-          </div>
-          <p class="card__source">Медуза</p>
-        </div>
-
-      </div>
+      <div class="cards-container"></div>
     </div>
   </section>
 

@@ -2,7 +2,7 @@ import {
   EMPTY_FIELD_ERROR_TEXT,
   INVALID_EMAIL_FORMAT,
   INVALID_PASSWORD_LENGTH,
-  INVALID_NAME_LENGTH,
+  INVALID_NAME_LENGTH, NOT_AUTHORIZED_CODE, NOT_FOUND_CODE, CONFLICT_CODE,
 } from '../constants/constants';
 
 export default class FormValidator {
@@ -55,15 +55,15 @@ export default class FormValidator {
   setError(error) {
     const serverErrorSpan = this._form.querySelector('.server-error');
     switch (error) {
-      case 401: {
+      case NOT_AUTHORIZED_CODE: {
         serverErrorSpan.textContent = 'Неверные данные для входа';
         break;
       }
-      case 404: {
+      case NOT_FOUND_CODE: {
         serverErrorSpan.textContent = 'Пользователь не найден';
         break;
       }
-      case 409: {
+      case CONFLICT_CODE: {
         serverErrorSpan.textContent = 'Пользователь с таким email уже существует';
       }
       default: {

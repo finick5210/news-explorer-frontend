@@ -4,16 +4,18 @@ import { removeClass, addClass } from '../utils/Utils';
 import { NOT_FOUND_CODE } from '../constants/constants';
 
 export default class CardList {
-  constructor(container, cards) {
+  constructor(container, cards, saveCallback, removeCallback) {
     this._container = container;
     this._cards = cards;
+    this._saveCallback = saveCallback;
+    this._removeCallback = removeCallback;
   }
 
-  _addCard(card, isSaved) {
-    this._container.appendChild(card.create(false));
+  _addCard(card, isSaved, isAuthorized) {
+    this._container.appendChild(card.create(isSaved, isAuthorized));
   }
 
-  render(isSaved) {
+  render(isSaved, isAuthorized) {
     if (this._cards && this._cards.length !== 0) {
       this._cards.forEach((newsCard) => {
         const {
@@ -29,15 +31,15 @@ export default class CardList {
           url,
           source.name,
           null,
-          () => {},
-          () => {},
+          this._saveCallback,
+          this._removeCallback
         );
 
-        this._addCard(card, isSaved);
+        this._addCard(card, isSaved, isAuthorized);
       });
     } else this.setErrorState(NOT_FOUND_CODE);
 
-    if (!isSaved) {
+    if (!isAuthorized) {
       const moreResultsButton = document.querySelector('.results__more');
 
       removeClass(moreResultsButton, 'hidden');

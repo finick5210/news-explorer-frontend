@@ -10,6 +10,10 @@ export const checkClass = (element, elementClass) => {
   element.classList.contains(elementClass);
 };
 
+export const addTextContent = (element, textContent) => {
+  element.textContent = textContent;
+};
+
 export const resetError = (error) => {
   error.innerHTML = '';
   error.classList.remove('popup__error');

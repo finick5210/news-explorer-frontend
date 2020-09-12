@@ -16,9 +16,7 @@ const app = new App(
     baseUrl: 'http://newsapi.org',
     key: 'faaae2930ed244bba9ef4d58d8d6d550',
   }),
-  {
-    isSaved: false,
-  },
+  false
 );
 
 app.renderPage();
