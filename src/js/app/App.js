@@ -4,6 +4,7 @@ import Form from '../components/Form';
 import FormValidator from '../components/FormValidator';
 import { getDate } from '../utils/Date';
 import { toggleClass } from '../utils/Utils';
+import CardList from '../components/CardList';
 
 export default class App {
   constructor(root, api, newsApi) {
@@ -130,8 +131,14 @@ export default class App {
         to: getDate('to'),
         pageSize: 100,
       })
-        .then(() => {
+        .then((response) => {
+          const { articles } = response;
+          const cardList = new CardList(document.querySelector('.cards-container'), articles);
 
+          toggleClass(document.querySelector('.search-results'), 'hidden');
+          toggleClass(document.querySelector('.loading'), 'hidden');
+
+          cardList.render();
         }).catch(() => {
 
         });

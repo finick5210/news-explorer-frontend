@@ -2,6 +2,14 @@ export const addClass = (element, elementClass) => {
   element.classList.add(elementClass);
 };
 
+export const removeClass = (element, elementClass) => {
+  element.classList.remove(elementClass);
+};
+
+export const checkClass = (element, elementClass) => {
+  element.classList.contains(elementClass);
+};
+
 export const resetError = (error) => {
   error.innerHTML = '';
   error.classList.remove('popup__error');
