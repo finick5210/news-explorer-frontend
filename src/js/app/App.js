@@ -3,7 +3,7 @@ import Popup from '../components/Popup';
 import Form from '../components/Form';
 import FormValidator from '../components/FormValidator';
 import { getDate } from '../utils/Date';
-import { toggleClass, addTextContent } from '../utils/Utils';
+import { toggleClass, addTextContent, removeToken } from '../utils/Utils';
 import CardList from '../components/CardList';
 
 export default class App {
@@ -86,7 +86,8 @@ export default class App {
         const loginFormValidator = new FormValidator(this._root.querySelector('.popup__form_login'));
         loginFormValidator.setEventListeners();
       } else if (classList.contains('header__logout')) {
-        console.log('logout');
+        removeToken();
+        document.location.href = '/';
       }
     });
 
