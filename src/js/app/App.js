@@ -203,6 +203,8 @@ export default class App {
       searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        toggleClass(document.querySelector('.loading'), 'hidden');
+
         this._newsApi.getNews({
           q: searchForm.elements.keyword.value,
           from: getDate('from'),
