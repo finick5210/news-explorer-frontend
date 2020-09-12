@@ -12,7 +12,10 @@ const app = new App(
       'Access-Control-Allow-Origin': '*'
     }
   }),
-  new NewsApi()
+  new NewsApi({
+    baseUrl: 'http://newsapi.org',
+    key: 'faaae2930ed244bba9ef4d58d8d6d550'
+  })
 );
 
 app.renderPage();

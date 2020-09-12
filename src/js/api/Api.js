@@ -1,3 +1,5 @@
+import { getResponse } from '../utils/Utils'
+
 export default class Api {
   constructor(params) {
     const { baseUrl, headers } = params;
@@ -13,7 +15,7 @@ export default class Api {
       credentials: 'include',
       body: JSON.stringify({ email, password, name })
     })
-      .then(res => this._getResponse(res));
+      .then(res => getResponse(res));
   }
 
   signin(email, password) {
@@ -23,7 +25,7 @@ export default class Api {
       credentials: 'include',
       body: JSON.stringify({ email, password })
     })
-      .then(res => this._getResponse(res));
+      .then(res => getResponse(res));
   }
 
   getArticles() {
@@ -34,7 +36,7 @@ export default class Api {
       },
       credentials: 'include',
     })
-      .then(res => this._getResponse(res));
+      .then(res => getResponse(res));
   }
 
   addArticle(keyword, title, text, date, source, link, image) {
@@ -47,7 +49,7 @@ export default class Api {
       credentials: 'include',
       body: JSON.stringify({ keyword, title, text, date, source, link, image})
     })
-      .then(res => this._getResponse(res));
+      .then(res => getResponse(res));
   }
 
   deleteArticle(id) {
@@ -59,7 +61,7 @@ export default class Api {
       },
       credentials: 'include',
     })
-      .then(res => this._getResponse(res));
+      .then(res => getResponse(res));
   }
 
   getUser() {
@@ -71,12 +73,8 @@ export default class Api {
       credentials: 'include'
     })
       .then(
-        res => this._getResponse(res)
+        res => getResponse(res)
       );
-  }
-
-  _getResponse(res) {
-    return res.ok ? res.json() : Promise.reject(res.status);
   }
 
   _getToken() {

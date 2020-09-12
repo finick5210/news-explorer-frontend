@@ -2,6 +2,8 @@ import Header from '../components/Header'
 import Popup from '../components/Popup';
 import Form from '../components/Form'
 import FormValidator from "../components/FormValidator";
+import { getDate } from '../utils/Date'
+import { toggleClass } from '../utils/Utils';
 
 export default class App {
   constructor(root, api, newsApi) {
@@ -19,6 +21,7 @@ export default class App {
 
     const headerContainer = this._root.querySelector('.header');
     const popupContainer = this._root.querySelector('.popup');
+    const searchForm = document.forms.search;
 
     const header = new Header(headerContainer);
     const popup = new Popup(popupContainer);
@@ -48,6 +51,8 @@ export default class App {
         popup.open();
         const loginFormValidator = new FormValidator(this._root.querySelector('.popup__form_login'));
         loginFormValidator.setEventListeners();
+      } else if (classList.contains('header__logout')) {
+        console.log('logout');
       }
     });
 
@@ -113,6 +118,20 @@ export default class App {
           })
           .catch((error) => loginFormValidator.setError(error));
       }
+    });
+
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      this._newsApi.getNews({
+        q: searchForm.elements.keyword.value,
+        from: getDate('from'),
+        to: getDate('to'),
+        pageSize: 100,
+      })
+        .then(() => {
+
+      })
     });
   }
 }
