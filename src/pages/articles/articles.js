@@ -6,7 +6,7 @@ import NewsApi from '../../js/api/NewsApi';
 const app = new App(
   document.querySelector('.root'),
   new Api({
-    baseUrl: 'http://news-explorer-yandex.tk/api',
+    baseUrl: 'https://news-explorer-yandex.tk/api',
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
