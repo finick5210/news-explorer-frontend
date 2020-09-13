@@ -6,14 +6,14 @@ import NewsApi from './js/api/NewsApi';
 const app = new App(
   document.querySelector('.root'),
   new Api({
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://api.news-explorer-yandex.tk',
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
     },
   }),
   new NewsApi({
-    baseUrl: 'http://newsapi.org',
+    baseUrl: 'https://nomoreparties.co/news',
     key: 'faaae2930ed244bba9ef4d58d8d6d550',
   }),
   false,
