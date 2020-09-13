@@ -1,4 +1,5 @@
 @import url(./__bookmark/card__bookmark.css);
+@import url(./__bookmark/card__bookmark_marked.css);
 @import url(./__image/card__image.css);
 @import url(./__info/card__info.css);
 @import url(./__date/card__date.css);

@@ -17,7 +17,14 @@
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/articles/articles.css);
 @import url(./blocks/saved-articles/saved-articles.css);
+@import url(./blocks/hidden/hidden.css);
 
 span {
   font-weight: bold;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

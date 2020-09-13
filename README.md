@@ -1,13 +1,14 @@
 # News explorer frontend
 
 ## Description
-Project from the [Yandex.practikum](https://praktikum.yandex.ru/) web developer course. Frontend part for coursework.
+Project from the [Yandex.practikum](https://praktikum.yandex.ru/) web developer course.
 
 ## Current version
 0.0.1
 
 ## Link
-[News explorer frontend](https://finick5210.github.io/news-explorer-frontend)
+[News explorer frontend GH pages](https://finick5210.github.io/news-explorer-frontend)
+[News explorer frontend](http://news-explorer-yandex.tk)
 
 ## How to start project locally
 1. To start project in dev mode perform "npm run dev"
